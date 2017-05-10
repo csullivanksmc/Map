@@ -16,7 +16,7 @@ namespace spotter
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Spots", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Spots", action = "Map", id = UrlParameter.Optional }
             );
         }
     }

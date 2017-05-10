@@ -16,6 +16,11 @@ namespace spotter.Controllers
         private SpotContext db = new SpotContext();
 
         // GET: Spots
+        public ActionResult Map()
+        {
+            return View(db.Spots.ToList());
+        }
+
         public ActionResult Index()
         {
             return View(db.Spots.ToList());
