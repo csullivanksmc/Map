@@ -52,7 +52,7 @@
                 var radius = document.getElementById('radiusSelect').value;
                 for (var i = 0; i < jsmodel.length; i++) {
                     spot = new google.maps.LatLng(jsmodel[i]['lat'], jsmodel[i]['lng'])
-                    if (google.maps.geometry.spherical.computeDistanceBetween(spot, startResults) < 100) {
+                    if (google.maps.geometry.spherical.computeDistanceBetween(spot, startResults)/1000 < radius) {
                         makePushMarker(spot);
                     }
                 };
