@@ -141,6 +141,7 @@
     <Content Include="Views\Spots\Edit.cshtml" />
     <Content Include="Views\Spots\Index.cshtml" />
     <Content Include="Views\Spots\Map.cshtml" />
+    <Content Include="Views\Spots\Main.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

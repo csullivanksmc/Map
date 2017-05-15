@@ -37,13 +37,20 @@
 
     function makePushMarker(latlng) {
         var marker = new google.maps.Marker({
-            map: map,
-            position: latlng
+            position: latlng,
+            map: map
         });
         markers.push(marker);
     }
 
+    function removeMarkers() {
+        for (var i = 0; i < markers.length; i++) {
+            markers[i].setMap(null);
+        }
+    }
+
     function searchForSpots() {
+        removeMarkers();
         var startHere = document.getElementById("addressInput").value;
         var geocoder = new google.maps.Geocoder();
         geocoder.geocode({ address: startHere }, function (results, status) {
@@ -56,6 +63,7 @@
                         makePushMarker(spot);
                     }
                 };
+                
             } else {
                 alert(startHere + 'not found');
             }

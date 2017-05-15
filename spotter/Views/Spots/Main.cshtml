@@ -1,0 +1,26 @@
+﻿@model IEnumerable<spotter.Models.Spot>
+
+@{
+    ViewBag.Title = "Main";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Main</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div>
+    @foreach (var item in Model)
+    {
+        <div>
+            <img  src="PLACEHOLDER"/>
+            <h4>
+                @Html.DisplayFor(modelItem => item.spotName)
+            </h4>
+            <p>
+                @Html.DisplayFor(modelItem => item.spotAddress)
+            </p>
+        </div>
+    }
+</div>
