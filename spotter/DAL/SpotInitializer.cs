@@ -6,7 +6,7 @@ using spotter.Models;
 
 namespace spotter.DAL
 {
-    public class SpotInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<SpotContext>
+    public class SpotInitializer : System.Data.Entity.DropCreateDatabaseAlways<SpotContext>
     {
         protected override void Seed(SpotContext context)
         {
@@ -47,7 +47,7 @@ namespace spotter.DAL
                 new Spot{lat=39.9242877,lng=-86.1099921}
             };
 
-            string[][] imageSeed = new string[][] 
+            string[][] imageSeed = new string[][]
             {
                 new string[] {"http://68.media.tumblr.com/115411f78f7734e3cd09e2afc2023703/tumblr_inline_ooxp0dwjzu1uwsat2_500.jpg", "http://68.media.tumblr.com/8e2ba9b604e1430769f20c7a9d050cdf/tumblr_inline_ooxopaS3JU1uwsat2_500.jpg", "http://68.media.tumblr.com/d3d26bffe5653307748c6438bdcba62c/tumblr_inline_ooxorqz8zg1uwsat2_500.jpg"},
                 new string[] { "http://68.media.tumblr.com/926ccbca883888eb50c4ac2f75742196/tumblr_inline_oood98MRx71uwsat2_500.jpg", "http://68.media.tumblr.com/c69453804b687b6cd4f768965cfd4567/tumblr_inline_oood8hUrdS1uwsat2_500.jpg", "http://68.media.tumblr.com/47a226f6693211dacfc99b2d19123640/tumblr_inline_oood6aG4eS1uwsat2_500.jpg" },
@@ -80,17 +80,25 @@ namespace spotter.DAL
                 new string[] { "http://68.media.tumblr.com/2f6e17fa83505e68a5f3ae6c6571fa07/tumblr_inline_okzkqo0JX01uwsat2_500.jpg", "http://68.media.tumblr.com/6bd31a08d23ed103bdef5e87c82c4a22/tumblr_inline_okzfwkPbMm1uwsat2_500.jpg" },
                 new string[] { "http://68.media.tumblr.com/c10320abc039730b3848f4cc5b71aa1e/tumblr_inline_okzfq5aJXc1uwsat2_500.jpg", "http://68.media.tumblr.com/7d45a5092a19ca4b3f9eb4f0716a0f10/tumblr_inline_okzfp18TTC1uwsat2_500.jpg", "http://68.media.tumblr.com/f3f523048d83f509db430bf62c70fc41/tumblr_inline_okzfmxGKGR1uwsat2_500.jpg" },
                 new string[] { "http://68.media.tumblr.com/c0abf0d298151aa0e4498ce407e20a2a/tumblr_inline_okxka21CKA1uwsat2_500.jpg", "http://68.media.tumblr.com/af916a0f0012ce04a8cfd417cf4b51c2/tumblr_inline_okxk8ikOH01uwsat2_500.jpg", "http://68.media.tumblr.com/94a8b07356d9795776f8403f86b23625/tumblr_inline_okxk7cl4ey1uwsat2_500.jpg", "http://68.media.tumblr.com/26fda2ad6b85aa882198fdd9a362c5f7/tumblr_inline_okxjvvDmmq1uwsat2_500.jpg", "http://68.media.tumblr.com/a871a0573dbf718c9ae68560486bc957/tumblr_inline_okxjyaOz0D1uwsat2_500.jpg", "http://68.media.tumblr.com/e36e2ad1581d8c827d7c483777c49ee2/tumblr_inline_okxjuun1LH1uwsat2_500.jpg" },
+                new string[] { "http://68.media.tumblr.com/606895f6537cd89873a7335bf51b7f29/tumblr_inline_okxiw7Jv6a1uwsat2_500.jpg", "http://68.media.tumblr.com/0cd16cf06ec164dd8ecf548f26d1e3bd/tumblr_inline_okxiuhUciN1uwsat2_500.jpg" },
                 new string[] { "http://68.media.tumblr.com/606895f6537cd89873a7335bf51b7f29/tumblr_inline_okxiw7Jv6a1uwsat2_500.jpg", "http://68.media.tumblr.com/0cd16cf06ec164dd8ecf548f26d1e3bd/tumblr_inline_okxiuhUciN1uwsat2_500.jpg" }
             };
-            int startHere = 0;
+            //int starthere = 0;
 
-            foreach (Spot currentspot in spots){
-                currentspot.imagePaths = String.Join(",", imageSeed[startHere]);
-                startHere += 1;
-                    }
+            //foreach (Spot currentspot in spots)
+            //{
+            //    while (spots.Count > starthere + 1)
+            //    {
+            //        currentspot.imagePaths = string.Join(",", imageSeed[starthere]);
+            //        starthere += 1;
+            //    }
+            //}
+
+
+            spots.ForEach(s => s.imagePaths = string.Join(",", imageSeed[0]));
             spots.ForEach(s => context.Spots.Add(s));
             context.SaveChanges();
         }
     }
 }
-    
+   

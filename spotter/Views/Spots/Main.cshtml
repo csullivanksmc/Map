@@ -14,7 +14,7 @@
     @foreach (var item in Model)
     {
         <div>
-            <img  src="PLACEHOLDER"/>
+            <img  src=@item.imagePaths.Split(',')[0]/>
             <h4>
                 @Html.DisplayFor(modelItem => item.spotName)
             </h4>
