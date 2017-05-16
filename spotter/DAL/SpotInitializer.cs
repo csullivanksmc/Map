@@ -97,6 +97,7 @@ namespace spotter.DAL
 
             spots.ForEach(s => s.imagePaths = string.Join(",", imageSeed[0]));
             spots.ForEach(s => context.Spots.Add(s));
+           
             context.SaveChanges();
         }
     }
