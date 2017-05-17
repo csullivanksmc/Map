@@ -7,7 +7,6 @@ namespace spotter.Models
 {
     public class Spot
     {
-        public int trick { get; set; }
         public string spotName { get; set; }
         public string spotAddress { get; set; }
         public string imagePaths { get; set; }
