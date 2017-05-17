@@ -6,7 +6,7 @@ using spotter.Models;
 
 namespace spotter.DAL
 {
-    public class SpotInitializer : System.Data.Entity.DropCreateDatabaseAlways<SpotContext>
+    public class SpotInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<SpotContext>
     {
         protected override void Seed(SpotContext context)
         {
@@ -95,7 +95,7 @@ namespace spotter.DAL
             //}
 
 
-            spots.ForEach(s => s.imagePaths = string.Join(",", imageSeed[0]));
+            //spots.ForEach(s => s.imagePaths = string.Join(",", imageSeed[0]));
             spots.ForEach(s => context.Spots.Add(s));
            
             context.SaveChanges();
